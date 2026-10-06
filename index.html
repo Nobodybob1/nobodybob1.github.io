@@ -1,0 +1,543 @@
+<title>Janko Štrkalj</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #f9f9f7;
+    --surface: #ffffff;
+    --ink: #14171c;
+    --muted: #5b6472;
+    --faint: #90969f;
+    --border: #e4e6e9;
+    --accent: #2f5de0;
+    --accent-ink: #0e2170;
+    --accent-soft: #e9edfc;
+    --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+    --sans: 'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c0e12;
+      --surface: #14171d;
+      --ink: #edeef1;
+      --muted: #9aa1ad;
+      --faint: #656c78;
+      --border: #262a32;
+      --accent: #7c96ff;
+      --accent-ink: #dce4ff;
+      --accent-soft: #1a2140;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0e12;
+    --surface: #14171d;
+    --ink: #edeef1;
+    --muted: #9aa1ad;
+    --faint: #656c78;
+    --border: #262a32;
+    --accent: #7c96ff;
+    --accent-ink: #dce4ff;
+    --accent-soft: #1a2140;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    margin: 0;
+    padding-inline: 24px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 760px; margin: 0 auto; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 14px;
+    gap: 16px;
+  }
+  .nav-mark {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .nav-links a { text-decoration: none; color: var(--muted); }
+  .nav-links a:hover { color: var(--ink); }
+  .btn-cv {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--surface);
+    background: var(--ink);
+    padding: 8px 14px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .btn-cv:hover { background: var(--accent); }
+  @media (max-width: 520px) {
+    .nav-links a:not(.btn-cv) { display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    position: relative;
+    padding-block: 72px 56px;
+  }
+  header.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: center top;
+    -webkit-mask-image: linear-gradient(to bottom, black 45%, transparent 95%);
+    mask-image: linear-gradient(to bottom, black 45%, transparent 95%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  h1.name {
+    font-family: var(--mono);
+    font-weight: 800;
+    font-size: clamp(34px, 6vw, 52px);
+    letter-spacing: -0.02em;
+    margin: 14px 0 6px;
+    text-wrap: balance;
+  }
+  p.role {
+    font-family: var(--mono);
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0 0 22px;
+  }
+  p.pitch {
+    font-size: 17px;
+    max-width: 60ch;
+    color: var(--ink);
+    margin: 0 0 10px;
+  }
+  p.sub {
+    font-size: 15px;
+    max-width: 58ch;
+    color: var(--muted);
+    margin: 0 0 28px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+  }
+  .btn-primary {
+    font-family: var(--mono);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--surface);
+    background: var(--accent);
+    padding: 11px 18px;
+    border-radius: 3px;
+  }
+  .btn-secondary {
+    font-family: var(--mono);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 10px 17px;
+    border-radius: 3px;
+  }
+  .btn-secondary:hover, .btn-primary:hover { opacity: 0.85; }
+  .icon-links { display: flex; gap: 10px; margin-left: 4px; }
+  .icon-links a {
+    display: flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--muted);
+  }
+  .icon-links a:hover { color: var(--ink); border-color: var(--faint); }
+  .icon-links svg { width: 16px; height: 16px; }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding-block: 52px; border-top: 1px solid var(--border); }
+  section h2 {
+    font-family: var(--mono);
+    font-size: clamp(22px, 4vw, 28px);
+    margin: 8px 0 34px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project {
+    padding-block: 30px;
+    border-top: 1px solid var(--border);
+  }
+  .project:first-of-type { border-top: none; padding-top: 0; }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .project-title { font-size: 19px; font-weight: 600; margin: 0; }
+  .project-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .project-desc { color: var(--muted); font-size: 15px; margin: 10px 0 14px; max-width: 62ch; }
+  .tech-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+  .tech-tag {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--accent-ink);
+    background: var(--accent-soft);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  .project-link {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--accent);
+  }
+  .project-link:hover { text-decoration: underline; }
+  .project-private {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--faint);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-group { margin-bottom: 22px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline { position: relative; padding-left: 26px; }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 4px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: var(--border);
+  }
+  .tl-item { position: relative; padding-bottom: 34px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -26px; top: 5px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    outline: 1px solid var(--accent);
+  }
+  .tl-role { font-size: 17px; font-weight: 600; margin: 0 0 3px; }
+  .tl-org { color: var(--muted); font-weight: 400; }
+  .tl-meta {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--faint);
+    margin-bottom: 8px;
+  }
+  .tl-desc { color: var(--muted); font-size: 14.5px; max-width: 60ch; }
+  .tl-desc ul { margin: 6px 0 0; padding-left: 18px; }
+  .tl-desc li { margin-bottom: 6px; }
+  .tl-edu {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border);
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-lead { font-size: 16px; color: var(--muted); max-width: 58ch; margin-bottom: 30px; }
+  .email-link {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px;
+    margin-bottom: 30px;
+    word-break: break-all;
+  }
+  .email-link:hover { color: var(--accent); }
+  footer {
+    padding-block: 30px 48px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-mark" href="#top">JŠ</a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a class="btn-cv" href="Janko-Strkalj-CV.pdf" target="_blank" rel="noopener">CV ↓</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Software Engineer — Kragujevac, Serbia</div>
+      <h1 class="name">Janko Štrkalj</h1>
+      <p class="role">Full-stack development · applied AI · IoT</p>
+      <p class="pitch">I build full-stack products, wire AI into real backends, and get hardware talking to the cloud.</p>
+      <p class="sub">Recently graduated Software Engineer with freelance experience shipping a compliance-automation platform and an IoT smart-grid prototype — comfortable owning a problem end-to-end, from database schema to a Raspberry Pi in someone's living room.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#projects">View projects</a>
+        <a class="btn-secondary" href="Janko-Strkalj-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <div class="icon-links">
+          <a href="https://github.com/Nobodybob1" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/janko-štrkalj" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+          <a href="mailto:jankokg26@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="projects">
+    <div class="eyebrow">Selected work</div>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">Neighborhood Energy Orchestrator</h3>
+        <span class="project-tag">IoT Proof of Concept · 2026</span>
+      </div>
+      <p class="project-desc">A proof-of-concept smart-grid system built for a Dutch energy-tech client, coordinating solar panels, home batteries, EV chargers, and heat pumps at the neighborhood level to reduce transformer overload. I built the Raspberry Pi 4 edge software — handling MQTT communication, device control, and short-term energy prediction — plus the central FastAPI orchestration platform with a simulation engine and live weather and energy-price integrations.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">MQTT</span><span class="tech-tag">Raspberry Pi</span><span class="tech-tag">InfluxDB</span><span class="tech-tag">SQLite</span>
+      </div>
+      <span class="project-private">Private client project</span>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">GR Centric</h3>
+        <span class="project-tag">GRC Platform · 2025</span>
+      </div>
+      <p class="project-desc">A compliance-automation platform for governance, risk, and audit teams, built with a two-person team. I owned the backend, database schema, and an AI document-intelligence pipeline that parses uploaded framework PDFs, extracts security controls, and generates LLM-powered summaries — shipped as an MVP the client began actively promoting to customers.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span><span class="tech-tag">Python</span><span class="tech-tag">LLM integration</span>
+      </div>
+      <span class="project-private">Private client project</span>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">Music Recommendation System</h3>
+        <span class="project-tag">Personal Project · 2025</span>
+      </div>
+      <p class="project-desc">An interactive song recommender that suggests five similar tracks based on audio features like energy, valence, and danceability, using a KNN model with cosine similarity — with a 2D PCA plot showing where a song and its recommendations sit in feature space.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span><span class="tech-tag">Streamlit</span><span class="tech-tag">scikit-learn</span>
+      </div>
+      <a class="project-link" href="https://github.com/Nobodybob1/Music-Recommendation" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">Haiku Clock</h3>
+        <span class="project-tag">Graduation Project · 2026</span>
+      </div>
+      <p class="project-desc">My capstone build for graduation: an e-ink display that shows a haiku matched to the time of day, with different artwork for day and night. It syncs its clock over the internet, reads its haiku library off an SD card, and sleeps between 15-minute refreshes to save power.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">MicroPython</span><span class="tech-tag">Raspberry Pi Pico</span><span class="tech-tag">Inky Frame 7.3</span><span class="tech-tag">E-Ink</span>
+      </div>
+      <a class="project-link" href="https://github.com/Nobodybob1/Haiku-Clock" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3 class="project-title">Travel Agency</h3>
+        <span class="project-tag">Team Project · 2023</span>
+      </div>
+      <p class="project-desc">A booking platform for summer vacation destinations across every continent — detailed destination pages, reservations, and automated email notifications. Built with a four-person university team.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">PHP</span><span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span>
+      </div>
+      <a class="project-link" href="https://github.com/Nobodybob1/Projektni-zadatak-iz-informacionih-sistema-i-baza-podataka" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="eyebrow">Toolbox</div>
+    <h2>Skills</h2>
+
+    <div class="skill-group">
+      <div class="skill-label">Languages &amp; Frameworks</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Streamlit</span>
+        <span class="skill-tag">PHP (Laravel)</span><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">C</span><span class="skill-tag">C#</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">Data &amp; Infrastructure</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MySQL</span><span class="skill-tag">SQLite</span><span class="skill-tag">InfluxDB</span>
+        <span class="skill-tag">AWS</span><span class="skill-tag">Terraform</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">Docker</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">IoT &amp; Embedded</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MQTT</span><span class="skill-tag">Raspberry Pi</span><span class="skill-tag">Embedded Systems</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-label">Ways of working</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Fast learner</span><span class="skill-tag">Communication</span><span class="skill-tag">Teamwork</span><span class="skill-tag">Adaptability</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="eyebrow">Career</div>
+    <h2>Experience</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-role">Freelance Software Engineer <span class="tl-org">— Remote</span></p>
+        <div class="tl-meta">07/2025 – 06/2026</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Delivered GR Centric, a full-stack GRC platform, as part of a two-person team — owned the backend, database, and AI document-intelligence pipeline; shipped an MVP the client began promoting to customers.</li>
+            <li>Built an IoT proof of concept for a Dutch energy-tech client's neighborhood energy-orchestration platform, covering both the Raspberry Pi edge-device software and the cloud orchestration backend.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <p class="tl-role">IT Support <span class="tl-org">— Eurobank Direktna</span></p>
+        <div class="tl-meta">12/2023 – 03/2025 · Kragujevac, Serbia</div>
+        <p class="tl-desc">Supported internal teams with day-to-day technical issues, software installation, and system troubleshooting; assisted senior IT staff with network diagnostics and user support.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-role">Internship <span class="tl-org">— Comtrade EDIT</span></p>
+        <div class="tl-meta">07/2023 · Kragujevac, Serbia</div>
+        <p class="tl-desc">Collaborated in a team to design and deploy a cloud-native application over a two-week internship program.</p>
+      </div>
+    </div>
+
+    <div class="tl-edu">B.Sc. Software Engineering — Faculty of Engineering, Kragujevac · 10/2019 – 09/2026</div>
+  </section>
+
+  <section id="contact">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Let's talk</h2>
+    <p class="contact-lead">Open to full-stack, backend, and IoT-leaning roles — and generally happy to talk about anything that involves gluing hardware to software. Email is the fastest way to reach me.</p>
+    <a class="email-link" href="mailto:jankokg26@gmail.com">jankokg26@gmail.com</a>
+    <div class="icon-links" style="margin-bottom: 20px;">
+      <a href="https://github.com/Nobodybob1" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.4-5.27 5.69.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/janko-štrkalj" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Kragujevac, Serbia</span>
+    <span>© 2026 Janko Štrkalj</span>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
