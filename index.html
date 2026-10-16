@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Janko Štrkalj is a software engineer building backend systems, AI pipelines and IoT software that turn messy, high-stakes problems into working systems. Python, FastAPI, PHP, MQTT.">
+<meta name="description" content="Janko Štrkalj is a software engineer building backend systems, AI pipelines and IoT software that turn messy, high-stakes problems into working systems. Python, FastAPI, PHP, MySQL.">
 <title>Janko Štrkalj</title>
 <script>
   try {
@@ -670,7 +670,7 @@
       <div class="term-body">
         <div class="t-comment"># where software meets the real world</div>
         <div><span class="t-key">role:</span> <span class="t-val">backend &amp; software engineer</span></div>
-        <div><span class="t-key">stack:</span> <span class="t-val">[Python, FastAPI, PHP, MQTT]</span></div>
+        <div><span class="t-key">stack:</span> <span class="t-val">[Python, FastAPI, PHP, MySQL]</span></div>
         <div><span class="t-key">current_builds:</span> <span class="t-val">[Riskform, GRC Assistant, Evidence Manager]</span></div>
         <div><span class="t-key">shipped:</span> <span class="t-val">[Energy Orchestrator, GRCentric]</span></div>
         <div><span class="t-key">education:</span> <span class="t-val">B.Eng. Software Engineering, 2026</span></div>
@@ -681,43 +681,17 @@
     </div>
   </header>
 
-  <section id="approach">
-    <div class="kicker">How I work</div>
-    <h2 class="section-title">I like the part before the obvious solution exists.</h2>
-    <p class="section-intro">The useful work is rarely another dashboard. It's finding the real constraint under the request, making the logic explicit in code and data, and shipping a system that survives contact with reality.</p>
-    <div class="grid-3">
-      <article class="card">
-        <div class="step-num">01 / FRAME</div>
-        <h3>Find the actual problem.</h3>
-        <p>Separate symptoms from constraints. Map the data, the stakeholders, and where human judgment still has to stay in the loop.</p>
-        <p class="step-example"><b>Energy Orchestrator:</b> the constraint was the transformer (100 kW / 700 kW limits), not any single device.</p>
-      </article>
-      <article class="card">
-        <div class="step-num">02 / MODEL</div>
-        <h3>Make the logic inspectable.</h3>
-        <p>Turn tacit reasoning into schemas, states, policies and pipelines that can be tested, challenged and improved.</p>
-        <p class="step-example"><b>GRCentric:</b> document jobs go through a queued Python worker with a lock against concurrent runs, so the AI pipeline runs predictably.</p>
-      </article>
-      <article class="card">
-        <div class="step-num">03 / SHIP</div>
-        <h3>Build the smallest credible system.</h3>
-        <p>Get something real in front of users, then measure whether it actually moves the number that matters.</p>
-        <p class="step-example"><b>Energy Orchestrator:</b> judged on KPI targets in 8- and 30-house simulations, not demos.</p>
-      </article>
-    </div>
-  </section>
-
   <section id="work">
     <div class="kicker">Work</div>
     <h2 class="section-title">What I'm building, and what I've shipped.</h2>
-    <p class="section-intro">Private builds exploring AI as infrastructure for judgment, plus client systems I've delivered.</p>
+    <p class="section-intro">Client systems I've delivered, plus private builds where AI helps people make better security and compliance decisions.</p>
 
     <div class="sub-head"><h3>Shipped work</h3><span>client projects · 2025–2026</span></div>
     <div class="features">
       <article class="card feature">
         <div class="feature-copy">
           <div class="feature-label"><b>Neighborhood Energy Orchestrator</b> / IoT PoC · 03–06/2026</div>
-          <h4>Coordinate the whole street, not just the house.</h4>
+          <h4>Coordinate the whole district, not just the house.</h4>
           <p>A proof of concept for a Dutch energy-tech client, part of an innovation project funded by the European Regional Development Fund (EFRO). It coordinates solar panels, home batteries, EV chargers and heat pumps across a neighborhood to reduce grid congestion. I built the edge software for two Raspberry Pi 4 devices, the FastAPI cloud orchestrator, and a simulation engine that models hourly per-household consumption.</p>
           <div class="kpis">
             <div class="kpi"><b>≥15%</b><span>lower transformer peak load</span></div>
@@ -845,6 +819,32 @@
     </div>
   </section>
 
+  <section id="approach">
+    <div class="kicker">How I work</div>
+    <h2 class="section-title">I like the part before the obvious solution exists.</h2>
+    <p class="section-intro">The useful work is rarely another dashboard. It's finding the real constraint under the request, making the logic explicit in code and data, and shipping a system that survives contact with reality.</p>
+    <div class="grid-3">
+      <article class="card">
+        <div class="step-num">01 / FRAME</div>
+        <h3>Find the actual problem.</h3>
+        <p>Separate symptoms from constraints. Map the data, the stakeholders, and where human judgment still has to stay in the loop.</p>
+        <p class="step-example"><b>Energy Orchestrator:</b> the constraint was the transformer (100 kW / 700 kW limits), not any single device.</p>
+      </article>
+      <article class="card">
+        <div class="step-num">02 / MODEL</div>
+        <h3>Make the logic inspectable.</h3>
+        <p>Turn tacit reasoning into schemas, states, policies and pipelines that can be tested, challenged and improved.</p>
+        <p class="step-example"><b>GRCentric:</b> document jobs go through a queued Python worker with a lock against concurrent runs, so the AI pipeline runs predictably.</p>
+      </article>
+      <article class="card">
+        <div class="step-num">03 / SHIP</div>
+        <h3>Build the smallest credible system.</h3>
+        <p>Get something real in front of users, then measure whether it actually moves the number that matters.</p>
+        <p class="step-example"><b>Energy Orchestrator:</b> judged on KPI targets in 8- and 30-house simulations, not demos.</p>
+      </article>
+    </div>
+  </section>
+
   <section id="skills">
     <div class="kicker">Toolbox</div>
     <h2 class="section-title">Skills</h2>
@@ -863,14 +863,14 @@
       </div>
       <div class="card">
         <div class="skill-label">AI &amp; ML</div>
-        <div class="skill-tags"><span class="skill-tag">AI/ML</span><span class="skill-tag">LLM APIs</span><span class="skill-tag">scikit-learn</span></div>
+        <div class="skill-tags"><span class="skill-tag">LLM APIs</span><span class="skill-tag">scikit-learn</span></div>
       </div>
       <div class="card">
         <div class="skill-label">Backend &amp; Tools</div>
         <div class="skill-tags"><span class="skill-tag">REST APIs</span><span class="skill-tag">Git</span><span class="skill-tag">Linux</span><span class="skill-tag">Windows</span></div>
       </div>
       <div class="card">
-        <div class="skill-label">Languages</div>
+        <div class="skill-label">Spoken Languages</div>
         <div class="skill-tags"><span class="skill-tag">Serbian</span><span class="skill-tag">English</span></div>
       </div>
     </div>
