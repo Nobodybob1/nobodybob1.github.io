@@ -8,7 +8,7 @@ The site covers:
 
 - **Shipped work** - Neighborhood Energy Orchestrator (IoT PoC for a Dutch energy-tech client) and GRCentric (compliance-automation platform)
 - **Current builds** - Riskform, GRC Assistant, Evidence Manager
-- **Earlier projects** - [Haiku Clock](https://github.com/Nobodybob1/Haiku-Clock), [Music Recommendation](https://github.com/Nobodybob1/Music-Recommendation), [Travel Agency](https://github.com/Nobodybob1/Projektni-zadatak-iz-informacionih-sistema-i-baza-podataka)
+- **Earlier projects** - Game Remakes (Godot, Unity), [Haiku Clock](https://github.com/Nobodybob1/Haiku-Clock), [Music Recommendation](https://github.com/Nobodybob1/Music-Recommendation), [Travel Agency](https://github.com/Nobodybob1/Projektni-zadatak-iz-informacionih-sistema-i-baza-podataka)
 - Skills, experience, education and contact
 
 ## Built with

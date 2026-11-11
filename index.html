@@ -673,6 +673,7 @@
         <div><span class="t-key">stack:</span> <span class="t-val">[Python, FastAPI, PHP, MySQL]</span></div>
         <div><span class="t-key">current_builds:</span> <span class="t-val">[Riskform, GRC Assistant, Evidence Manager]</span></div>
         <div><span class="t-key">shipped:</span> <span class="t-val">[Energy Orchestrator, GRCentric]</span></div>
+        <div><span class="t-key">learning:</span> <span class="t-val">[Godot, Unity, game dev]</span></div>
         <div><span class="t-key">education:</span> <span class="t-val">B.Eng. Software Engineering, 2026</span></div>
         <div><span class="t-key">method:</span> <span class="t-val">frame → model → build → test</span></div>
         <div><span class="t-key">bias:</span> <span class="t-val">explainable systems over black boxes</span></div>
@@ -715,9 +716,9 @@
         <div class="feature-copy">
           <div class="feature-label"><b>GRCentric</b> / Compliance platform · German-based startup · 2025</div>
           <h4>Compliance frameworks in, structured controls out.</h4>
-          <p>A compliance-automation platform built end to end with a UI/UX designer: I covered the PHP/MySQL backend, database design and front end. A Python background worker picks up queued document jobs and feeds an AI pipeline that extracts security controls from framework documents and generates summaries. I moved it from a local Llama model to GPT-4.1 for better quality at acceptable cost.</p>
+          <p>A compliance-automation platform built end to end with a UI/UX designer: I covered the PHP/MySQL backend, database design and front end. A Python background worker picks up queued document jobs and feeds an AI pipeline that extracts security controls from framework documents and generates summaries. I moved it from a local Llama model to GPT-4o for better quality at acceptable cost.</p>
           <div class="pills">
-            <span class="pill">PHP</span><span class="pill">MySQL</span><span class="pill">Python</span><span class="pill">GPT-4.1</span><span class="pill">LLM pipeline</span>
+            <span class="pill">PHP</span><span class="pill">MySQL</span><span class="pill">Python</span><span class="pill">GPT-4o</span><span class="pill">LLM pipeline</span>
           </div>
           <span class="status shipped">SHIPPED MVP / LATER PROMOTED BY THE CLIENT</span>
         </div>
@@ -726,7 +727,7 @@
           <div class="flow-arrow">↓</div>
           <div class="flow-row"><span class="label">QUEUE</span><strong>Python worker · MySQL jobs · run lock</strong><span class="tag">process</span></div>
           <div class="flow-arrow">↓</div>
-          <div class="flow-row"><span class="label">AI LAYER</span><strong>extract controls · summaries · Llama → GPT-4.1</strong><span class="tag">structure</span></div>
+          <div class="flow-row"><span class="label">AI LAYER</span><strong>extract controls · summaries · Llama → GPT-4o</strong><span class="tag">structure</span></div>
           <div class="flow-arrow">↓</div>
           <div class="flow-row"><span class="label">OUTPUT</span><strong>compliance-automation platform</strong><span class="tag">act</span></div>
         </div>
@@ -794,7 +795,13 @@
     </div>
 
     <div class="sub-head"><h3>Earlier projects</h3><span>personal &amp; university · open source</span></div>
-    <div class="grid-3">
+    <div class="grid-2">
+      <article class="card small-card">
+        <div class="card-meta">Personal Project · Learning</div>
+        <h3>Game Remakes</h3>
+        <p>Remakes of Pong, Flappy Bird and other classic games, built to learn how game engines work: the game loop, scenes, input, collisions and scoring. I've played games for as long as I can remember; this is me starting to build them.</p>
+        <div class="pills"><span class="pill">Godot</span><span class="pill">GDScript</span><span class="pill">Unity</span><span class="pill">C#</span></div>
+      </article>
       <article class="card small-card">
         <div class="card-meta">Graduation Project · 2026</div>
         <h3>Haiku Clock</h3>
@@ -851,7 +858,7 @@
     <div class="grid-2">
       <div class="card">
         <div class="skill-label">Languages &amp; Frameworks</div>
-        <div class="skill-tags"><span class="skill-tag">Python (FastAPI)</span><span class="skill-tag">PHP (Laravel)</span><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML/CSS</span><span class="skill-tag">Streamlit</span></div>
+        <div class="skill-tags"><span class="skill-tag">Python (FastAPI)</span><span class="skill-tag">PHP (Laravel)</span><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML/CSS</span><span class="skill-tag">C++</span><span class="skill-tag">Streamlit</span></div>
       </div>
       <div class="card">
         <div class="skill-label">Data</div>
@@ -863,15 +870,15 @@
       </div>
       <div class="card">
         <div class="skill-label">AI &amp; ML</div>
-        <div class="skill-tags"><span class="skill-tag">LLM APIs</span><span class="skill-tag">scikit-learn</span></div>
+        <div class="skill-tags"><span class="skill-tag">Claude Code</span><span class="skill-tag">LLM APIs</span><span class="skill-tag">scikit-learn</span></div>
       </div>
       <div class="card">
         <div class="skill-label">Backend &amp; Tools</div>
         <div class="skill-tags"><span class="skill-tag">REST APIs</span><span class="skill-tag">Git</span><span class="skill-tag">Linux</span><span class="skill-tag">Windows</span></div>
       </div>
       <div class="card">
-        <div class="skill-label">Spoken Languages</div>
-        <div class="skill-tags"><span class="skill-tag">Serbian</span><span class="skill-tag">English</span></div>
+        <div class="skill-label">Game Engines</div>
+        <div class="skill-tags"><span class="skill-tag">Godot</span><span class="skill-tag">Unity</span></div>
       </div>
     </div>
   </section>
@@ -899,7 +906,7 @@
           <div class="tl-desc">
             <ul>
               <li>Built a full-stack compliance-automation platform end to end in collaboration with a UI/UX designer, covering the PHP/MySQL backend, database design and front-end implementation; shipped an MVP the client went on to promote to customers.</li>
-              <li>Developed a Python background worker that processes queued document jobs from MySQL, with a lock against concurrent runs, connecting the platform to an AI pipeline that extracts security controls from framework documents and generates summaries; moved from a local Llama model to GPT-4.1 for better quality at acceptable cost.</li>
+              <li>Developed a Python background worker that processes queued document jobs from MySQL, with a lock against concurrent runs, connecting the platform to an AI pipeline that extracts security controls from framework documents and generates summaries; moved from a local Llama model to GPT-4o for better quality at acceptable cost.</li>
             </ul>
           </div>
         </div>
@@ -927,6 +934,10 @@
         <div><b>Specialized Program in Mathematics</b> · First Kragujevac Gymnasium · 09/2013 – 06/2019</div>
       </div>
       <div class="tl-edu">
+        <div class="edu-label">Languages</div>
+        <div><b>Serbian</b> (native) · <b>English</b></div>
+      </div>
+      <div class="tl-edu">
         <div class="edu-label">Organizations</div>
         <div><b>Youth Club SKC</b> · member, student cultural activities and events · 02/2025 – present</div>
         <div><b>Neutrinos IT</b> · member, app development and local community projects · 01/2025 – present</div>
@@ -938,7 +949,7 @@
     <div class="card cta">
       <div class="kicker">Get in touch</div>
       <h2 class="section-title">Working on a backend, AI or IoT system?</h2>
-      <p class="lead">I'm open to backend, full-stack and IoT-leaning roles, and happy to talk about anything messy, cross-functional and hard to make operational, especially if it involves gluing hardware to software. Email is the fastest way to reach me.</p>
+      <p class="lead">I'm open to backend, full-stack and IoT-leaning roles, and happy to talk about anything messy, cross-functional and hard to make operational, especially if it involves gluing hardware to software. I'm also learning game development in Godot and Unity, so game-related roles are very welcome. Email is the fastest way to reach me.</p>
       <a class="email-link" href="mailto:jankokg26@gmail.com">jankokg26@gmail.com</a>
       <div class="actions">
         <a class="btn primary" href="https://www.linkedin.com/in/janko-%C5%A1trkalj/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
